@@ -2,6 +2,7 @@ package com.RealTuts;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.util.Random;
 
 public class Game extends Canvas implements Runnable{
 
@@ -13,7 +14,12 @@ public class Game extends Canvas implements Runnable{
     public Game(){
         new Window(WIDTH, HEIGHT, "games!", this);
         handler = new Handler();
-        handler.addObject(new Player(200,200));
+        //handler.addObject(new Player(200,200));
+        Random r = new Random();
+        for(int i = 0; i < 50; i++) {
+            handler.addObject(new Star(r.nextInt(800),r.nextInt(640)));
+        }
+
     }
     public synchronized void start() {
         thread = new Thread(this);
