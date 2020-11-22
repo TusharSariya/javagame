@@ -12,12 +12,14 @@ public class Game extends Canvas implements Runnable{
     private Handler handler;
 
     public Game(){
-        new Window(WIDTH, HEIGHT, "games!", this);
+
         handler = new Handler();
-        //handler.addObject(new Player(200,200));
+        //handler.addObject(new Player(400,320));
         Random r = new Random();
+        new Window(WIDTH, HEIGHT, "games!", this);
         for(int i = 0; i < 50; i++) {
-            handler.addObject(new Star(r.nextInt(800),r.nextInt(640)));
+            //handler.addObject(new Star(r.nextInt(800),r.nextInt(640)));
+            handler.addObject(new Star((800/50)*i,(640/50)*i));
         }
 
     }
